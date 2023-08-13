@@ -17,6 +17,9 @@ nix-env -iA \
     nixpkgs.man \
     nixpkgs.xz \
 
+
+sudo apt install --no-install-recommends network-manager network-manager-gnome
+
 # Installing dev
 nix-env -iA \
     nixpkgs.git \
@@ -31,7 +34,6 @@ nix-env -iA \
 
 # Installing environment
 nix-env -iA \
-    nixpkgs.i3 \
     nixpkgs.polybar \
     nixpkgs.rofi \
     nixpkgs.dunst \
@@ -54,14 +56,22 @@ nix-env -iA \
     nixpkgs.neofetch \
 
 
+
 # Installing unbuilt
+cd /tmp
+
+## Installing i3-gaps
+git clone git@github.com:maestrogerardo/i3-gaps-deb.git
+cd i3-gaps-deb
+./i3-gaps-deb
+cd ..
+
 ## Dotfiles
-cp ./dotfiles/.zshrc $HOME/.zshrc
-cp ./dotfiles/neofetch $HOME/.config/neofetch/config.conf
-cp ./dotfiles/ranger $HOME/.config/ranger/rc.conf
+#cp ./dotfiles/.zshrc $HOME/.zshrc
+#cp ./dotfiles/neofetch $HOME/.config/neofetch/config.conf
+#cp ./dotfiles/ranger $HOME/.config/ranger/rc.conf
 
 ## Installing Ly
-cd /tmp
 git clone --recurse-submodules https://github.com/fairyglade/ly
 cd ly
 make
@@ -81,12 +91,13 @@ unzip JetBrainsMono.zip \
 
 ## Installing powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/powerlevel10k
+echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 ## Installing Lunar Vim
 LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
 
 ## Installing ranger icons
 git clone https://github.com/alexanderjeurissen/ranger_devicons $HOME/.config/ranger/plugins/ranger_devicons
+echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 
 cd $HOME
-
