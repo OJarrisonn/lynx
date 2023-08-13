@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ $# == 2 ]; then
+    if [ $1 == "install" ]; then
+        nix-env -iA nixpkgs.$2
+    fi
+fi
