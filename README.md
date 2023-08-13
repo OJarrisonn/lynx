@@ -32,7 +32,7 @@ Possibilities:
 - [pywal](https://github.com/dylanaraps/pywal) (color scheme)
 
 ## Install
-Clone this repo and run ```./install.sh```.
+First run ```apt install --no-install-recommends git ca-certificates```. Then clone this repo and run ```./install.sh```.
 
 ## Post-Install
 **TODO: Inclu my .zshrc file**

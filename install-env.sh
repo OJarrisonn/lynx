@@ -1,21 +1,9 @@
-#!/bin/bash
-
-cd $HOME
-
-# TODO: Why the X isn't working
-# TODO: Config: zsh, i3, polybar, rofi, dunst, alacritty, ranger, neofetch
-
-sudo apt install --no-install-recommends curl wget ca-certificates
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev # For build ly
-
-# Installing Nix
-sh <(curl -L https://nixos.org/nix/install) --daemon
-
 # Installing base
 nix-env -iA \
     nixpkgs.pipewire \
     nixpkgs.man \
     nixpkgs.xz \
+
 
 
 sudo apt install --no-install-recommends network-manager network-manager-gnome
@@ -29,7 +17,8 @@ nix-env -iA \
     nixpkgs.python310Packages.pip \
     nixpkgs.rustup \
     nixpkgs.nodejs_20 \
-    nixpkgs.zsh
+    nixpkgs.zsh \
+    nixpkgs.openssh
 
 
 # Installing environment
