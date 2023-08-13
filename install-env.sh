@@ -10,9 +10,6 @@ sudo apt install --no-install-recommends network-manager network-manager-gnome
 
 # Installing dev
 nix-env -iA \
-    nixpkgs.git \
-    nixpkgs.gnumake \
-    nixpkgs.cmake \
     nixpkgs.python310 \
     nixpkgs.python310Packages.pip \
     nixpkgs.rustup \
@@ -50,7 +47,7 @@ nix-env -iA \
 cd /tmp
 
 ## Installing i3-gaps
-git clone git@github.com:maestrogerardo/i3-gaps-deb.git
+git clone https://github.com/maestrogerardo/i3-gaps-deb.git
 cd i3-gaps-deb
 ./i3-gaps-deb
 cd ..
